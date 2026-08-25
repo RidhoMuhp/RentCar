@@ -1,0 +1,53 @@
+import { motion } from "framer-motion";
+import { ArrowRight, Settings2, Users } from "lucide-react";
+import { getWhatsAppUrl } from "../../config/siteConfig";
+import { fadeUp } from "../../animations/motion";
+export default function CarCard({ car }) {
+  return (
+    <motion.article
+      variants={fadeUp}
+      whileHover={{ y: -7 }}
+      className="w-[86%] shrink-0 snap-start overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-xl sm:basis-[calc(50%_-_9px)] lg:basis-[calc(33.333%_-_12px)]"
+    >
+      <div className="relative m-2 h-60 overflow-hidden rounded-2xl">
+        <motion.img
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.5 }}
+          className="h-full w-full object-cover"
+          src={car.image}
+          alt={car.name}
+        />
+        <span className="absolute top-3 left-3 rounded-full bg-acid px-3 py-2 text-[8px] font-extrabold uppercase tracking-wider">
+          {car.tag}
+        </span>
+      </div>
+      <div className="p-5">
+        <h3 className="text-xl font-bold">{car.name}</h3>
+        <div className="mt-4 flex gap-4 border-b border-zinc-100 pb-4 text-[10px] text-muted">
+          <span className="flex items-center gap-1.5">
+            <Users size={14} />
+            {car.seats} Kursi
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Settings2 size={14} />
+            {car.transmission}
+          </span>
+        </div>
+        <div className="flex items-end justify-between pt-4">
+          <p className="text-[9px]">
+            <small className="block text-zinc-400">Mulai dari</small>
+            <strong className="text-2xl">Rp{car.price}</strong> / hari
+          </p>
+          <motion.a
+            whileHover={{ rotate: -12, scale: 1.05 }}
+            className="grid size-10 place-items-center rounded-xl bg-ink text-acid"
+            href={getWhatsAppUrl()}
+            aria-label={`Pesan ${car.name}`}
+          >
+            <ArrowRight size={17} />
+          </motion.a>
+        </div>
+      </div>
+    </motion.article>
+  );
+}
