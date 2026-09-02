@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, MessageCircle, Phone } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarCheck, Phone } from "lucide-react";
 import {
   getPhoneUrl,
   getWhatsAppUrl,
@@ -121,46 +121,55 @@ export default function HeroSection() {
           initial={{ opacity: 0, x: 35 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
-          className="relative z-10 mx-auto -mt-16 w-[calc(100%-28px)] rounded-3xl border border-white/60 bg-white/95 p-6 text-ink shadow-2xl backdrop-blur lg:absolute lg:top-1/2 lg:right-4
-           lg:mt-0 lg:w-[275px] lg:-translate-y-1/2"
+          className="relative z-10 mx-auto -mt-16 w-[calc(100%-28px)] rounded-3xl border border-white/60 bg-white/95 p-6 text-ink shadow-2xl backdrop-blur lg:absolute lg:top-1/2 lg:right-4 lg:mt-0 lg:w-[275px] lg:-translate-y-1/2"
         >
           <span className="text-[8px] font-extrabold tracking-wider">
-            <i className="mr-2 inline-block size-2 rounded-full bg-emerald-500" />{" "}
-            ONLINE SEKARANG
+            <i className="mr-2 inline-block size-2 rounded-full bg-emerald-500" />
+            BOOKING TERSEDIA
           </span>
+
           <h2 className="my-4 text-3xl leading-none font-bold">
-            Butuh mobil
+            Pesan mobil
             <br />
-            hari ini?
+            lebih cepat.
           </h2>
+
           <p className="text-[11px] leading-5 text-muted">
-            Tim kami siap bantu pilihkan mobil terbaik sesuai kebutuhanmu.
+            Pilih armada, isi kebutuhan perjalanan, dan kirim detail booking langsung
+            ke WhatsApp.
           </p>
+
           <a
-            className="mt-5 flex items-center gap-3 rounded-xl bg-emerald-500 p-3 text-white"
-            href={getWhatsAppUrl()}
+            className="mt-5 flex items-center gap-3 rounded-xl bg-acid p-3 text-ink transition hover:bg-[#d7ff2f]"
+            href="#booking"
           >
-            <MessageCircle />
+            <CalendarCheck size={22} />
+
             <span className="text-xs font-bold">
               <small className="block text-[7px] font-normal tracking-wider">
-                CHAT VIA
+                ISI DATA SINGKAT
               </small>
-              WhatsApp
+              Booking Sekarang
             </span>
+
             <ArrowRight className="ml-auto" size={17} />
           </a>
+
           <div className="my-4 text-center text-[8px] text-zinc-400">
             atau hubungi langsung
           </div>
+
           <a
             className="flex items-center gap-3 text-sm font-bold"
             href={getPhoneUrl()}
           >
             <Phone size={18} />
+
             <span>
               <small className="block text-[7px] tracking-wider text-zinc-400">
                 TELEPON KAMI
               </small>
+
               {siteConfig.contact.phoneDisplay}
             </span>
           </a>
