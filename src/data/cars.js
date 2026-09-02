@@ -29,6 +29,7 @@ export const fleetCars = [
     seats: 7,
     transmission: "Manual / Matic",
     price: "350K",
+    dailyPrice: 350000,
     image: heroCars[0].image,
   },
   {
@@ -38,6 +39,7 @@ export const fleetCars = [
     seats: 7,
     transmission: "Matic",
     price: "650K",
+    dailyPrice: 650000,
     image: heroCars[1].image,
   },
   {
@@ -47,6 +49,7 @@ export const fleetCars = [
     seats: 5,
     transmission: "Matic",
     price: "300K",
+    dailyPrice: 300000,
     image: heroCars[2].image,
   },
   {
@@ -56,6 +59,7 @@ export const fleetCars = [
     seats: 7,
     transmission: "Matic",
     price: "500K",
+    dailyPrice: 500000,
     image:
       "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85",
   },
@@ -66,6 +70,7 @@ export const fleetCars = [
     seats: 7,
     transmission: "Matic",
     price: "1.200K",
+    dailyPrice: 1200000,
     image:
       "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=85",
   },
@@ -76,6 +81,7 @@ export const fleetCars = [
     seats: 14,
     transmission: "Manual",
     price: "1.300K",
+    dailyPrice: 1300000,
     image:
       "https://images.unsplash.com/photo-1566933293069-b55c7f326dd4?auto=format&fit=crop&w=1200&q=85",
   },

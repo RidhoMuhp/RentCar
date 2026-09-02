@@ -1,8 +1,8 @@
 export const siteConfig = {
   brand: { name: "Makassar", accent: "Drive", initial: "M" },
   contact: {
-    phoneDisplay: "0812 3456 7890",
-    phoneValue: "+6281234567890",
+    phoneDisplay: "0851 7955 7691",
+    phoneValue: "+6285179557691",
     whatsappMessage: "Halo Makassar Drive, saya ingin sewa mobil",
   },
   location: {
@@ -10,6 +10,10 @@ export const siteConfig = {
     mapQuery: "Makassar, Sulawesi Selatan",
   },
 };
-export const getWhatsAppUrl = () =>
-  `https://wa.me/${siteConfig.contact.phoneValue.replace("+", "")}?text=${encodeURIComponent(siteConfig.contact.whatsappMessage)}`;
-export const getPhoneUrl = () => `tel:${siteConfig.contact.phoneValue}`;
+export const getWhatsAppUrl = (
+  message = siteConfig.contact.whatsappMessage,
+) =>
+  `https://wa.me/${siteConfig.contact.phoneValue.replace("+", "")}?text=${encodeURIComponent(message)}`;
+
+export const getPhoneUrl = () =>
+  `tel:${siteConfig.contact.phoneValue.replace(/\s/g, "")}`;

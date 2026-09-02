@@ -121,7 +121,8 @@ export default function HeroSection() {
           initial={{ opacity: 0, x: 35 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
-          className="relative z-10 mx-auto -mt-16 w-[calc(100%-28px)] rounded-3xl border border-white/60 bg-white/95 p-6 text-ink shadow-2xl backdrop-blur lg:absolute lg:top-1/2 lg:right-4 lg:mt-0 lg:w-[275px] lg:-translate-y-1/2"
+          className="relative z-10 mx-auto -mt-16 w-[calc(100%-28px)] rounded-3xl border border-white/60 bg-white/95 p-6 text-ink shadow-2xl backdrop-blur lg:absolute lg:top-1/2 lg:right-4
+           lg:mt-0 lg:w-[275px] lg:-translate-y-1/2"
         >
           <span className="text-[8px] font-extrabold tracking-wider">
             <i className="mr-2 inline-block size-2 rounded-full bg-emerald-500" />{" "}

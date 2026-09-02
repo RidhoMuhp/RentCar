@@ -1,9 +1,9 @@
 import { Clock3, Settings2, ShieldCheck, Users } from "lucide-react";
 export const navigationLinks = [
   { label: "Armada", href: "#armada" },
+  { label: "Booking", href: "#booking" },
   { label: "Layanan", href: "#layanan" },
   { label: "Lokasi", href: "#lokasi" },
-  { label: "Tentang Kami", href: "#tentang" },
 ];
 export const benefits = [
   {

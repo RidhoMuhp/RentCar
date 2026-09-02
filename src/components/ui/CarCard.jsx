@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, Settings2, Users } from "lucide-react";
 import { getWhatsAppUrl } from "../../config/siteConfig";
 import { fadeUp } from "../../animations/motion";
+import { useBooking } from "../../context/BookingContext";
 export default function CarCard({ car }) {
+  const { chooseCar } = useBooking();
   return (
     <motion.article
       variants={fadeUp}
@@ -38,14 +40,15 @@ export default function CarCard({ car }) {
             <small className="block text-zinc-400">Mulai dari</small>
             <strong className="text-2xl">Rp{car.price}</strong> / hari
           </p>
-          <motion.a
+          <motion.button
             whileHover={{ rotate: -12, scale: 1.05 }}
+            type="button"
+            onClick={() => chooseCar(car.name)}
             className="grid size-10 place-items-center rounded-xl bg-ink text-acid"
-            href={getWhatsAppUrl()}
             aria-label={`Pesan ${car.name}`}
           >
             <ArrowRight size={17} />
-          </motion.a>
+          </motion.button>
         </div>
       </div>
     </motion.article>
