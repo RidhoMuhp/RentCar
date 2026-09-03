@@ -5,7 +5,6 @@ import { fleetCars } from "../../data/cars";
 
 import {
   fadeUp,
-  staggerContainer,
   viewportOnce,
 } from "../../animations/motion";
 
@@ -155,18 +154,14 @@ export default function FleetSection() {
       {/* Fleet */}
       {filteredCars.length > 0 ? (
         <>
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
+          <div
             className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             ref={trackRef}
           >
             {filteredCars.map((car) => (
               <CarCard car={car} key={car.id} />
             ))}
-          </motion.div>
+          </div>
 
           <div className="text-[8px] font-bold tracking-widest text-zinc-400">
             GESER UNTUK MELIHAT ARMADA LAINNYA ↔
