@@ -1,4 +1,4 @@
-import { useEffect,useRef, useState } from "react";
+import { useEffect,useRef,useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { fleetCars } from "../../data/cars";
@@ -41,7 +41,7 @@ export default function FleetSection() {
       left: 0,
       behavior: "smooth",
     });
-  }, [searchTerm, statusFilter]);
+  }, [statusFilter]);
 
   const move = (direction) =>
     trackRef.current?.scrollBy({
