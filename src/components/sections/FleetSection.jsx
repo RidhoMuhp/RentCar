@@ -27,10 +27,6 @@ export default function FleetSection() {
     return matchesSearch && matchesStatus;
   });
 
-  console.log("searchTerm:", searchTerm);
-  console.log("statusFilter:", statusFilter);
-  console.log("filteredCars:", filteredCars);
-
   const move = (direction) =>
     trackRef.current?.scrollBy({
       left: direction * 390,
@@ -181,5 +177,5 @@ export default function FleetSection() {
       )}
     </section>
   );
-
 }
+
