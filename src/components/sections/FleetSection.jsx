@@ -1,14 +1,23 @@
-import { useRef, useState } from "react";
+import { useEffect,useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { fleetCars } from "../../data/cars";
 
 import {
   fadeUp,
+  staggerContainer,
   viewportOnce,
 } from "../../animations/motion";
 
 import CarCard from "../ui/CarCard";
+
+const statusOptions = [
+    { label: "Semua", value: "all" },
+    { label: "Available", value: "available" },
+    { label: "Rented", value: "rented" },
+    { label: "Maintenance", value: "maintenance" },
+  ];
+
 
 export default function FleetSection() {
   const trackRef = useRef(null);
@@ -27,18 +36,18 @@ export default function FleetSection() {
     return matchesSearch && matchesStatus;
   });
 
+  useEffect(() => {
+    trackRef.current?.scrollTo({
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [searchTerm, statusFilter]);
+
   const move = (direction) =>
     trackRef.current?.scrollBy({
       left: direction * 390,
       behavior: "smooth",
     });
-
-  const statusOptions = [
-    { label: "Semua", value: "all" },
-    { label: "Available", value: "available" },
-    { label: "Rented", value: "rented" },
-    { label: "Maintenance", value: "maintenance" },
-  ];
 
   return (
     <section
@@ -140,14 +149,18 @@ export default function FleetSection() {
       {/* Fleet */}
       {filteredCars.length > 0 ? (
         <>
-          <div
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
             className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             ref={trackRef}
           >
             {filteredCars.map((car) => (
               <CarCard car={car} key={car.id} />
             ))}
-          </div>
+          </motion.div>
 
           <div className="text-[8px] font-bold tracking-widest text-zinc-400">
             GESER UNTUK MELIHAT ARMADA LAINNYA ↔
