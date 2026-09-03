@@ -1,4 +1,4 @@
-import { useEffect,useRef,useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { fleetCars } from "../../data/cars";
@@ -35,6 +35,12 @@ export default function FleetSection() {
 
     return matchesSearch && matchesStatus;
   });
+
+  useEffect(() => {
+    if (!trackRef.current) return;
+
+    trackRef.current.scrollLeft = 0;
+  }, [searchTerm]);
 
   useEffect(() => {
     trackRef.current?.scrollTo({
