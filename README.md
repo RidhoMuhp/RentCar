@@ -1,46 +1,99 @@
-# Makassar Drive — React + Vite
+# RentCar — Website Booking Rental Mobil
 
-Landing page rental mobil Makassar berbasis React, Tailwind CSS, dan Framer Motion yang siap di-deploy ke Netlify.
+Website rental mobil berbasis React yang dibuat untuk mempermudah proses booking melalui WhatsApp.
 
-## Menjalankan lokal
+Daripada customer harus mengetik ulang detail rental satu per satu, website membantu menyusun informasi pemesanan terlebih dahulu lalu membuat format chat WhatsApp secara otomatis.
 
-```bash
-npm install
-npm run dev
-```
+## Fitur
 
-## Build production
+- Katalog kendaraan
+- Pencarian berdasarkan nama mobil
+- Filter status kendaraan
+- Status ketersediaan kendaraan
+- Estimasi harga rental
+- Form booking
+- Generate pesan WhatsApp otomatis
+- Responsive untuk mobile
 
-```bash
-npm run build
-```
+## Alur Booking
 
-## Deploy ke Netlify
 
-Hubungkan repository GitHub ke Netlify. Build command dan publish directory sudah disiapkan melalui `netlify.toml`.
+Pilih Mobil
+    ↓
+Isi Detail Rental
+    ↓
+Lihat Estimasi Harga
+    ↓
+Generate Pesan Booking
+    ↓
+Lanjut ke WhatsApp
 
-## Struktur source
 
-```text
+## Tech Stack
+
+* React
+* JavaScript
+* Tailwind CSS
+* Framer Motion
+* Vite
+* Git / GitHub
+* Netlify
+
+## Development Workflow
+
+Project ini juga digunakan untuk melatih workflow development yang lebih terstruktur, seperti:
+
+* feature branch
+* ticket-based development
+* pull request
+* code review
+* revision
+* regression testing
+
+Contoh ticket yang sudah dikerjakan:
+
+FLT-014 — Vehicle Search & Availability Filter
+
+## Struktur Project
 src/
 ├── components/
-│   ├── layout/       # Navbar dan Footer
-│   ├── sections/     # Section halaman utama
-│   └── ui/           # Komponen kecil yang digunakan ulang
-├── config/           # Brand, kontak, WhatsApp, dan lokasi
-├── data/             # Data armada dan konten layanan
-├── animations/       # Variant animasi Framer Motion reusable
-├── App.jsx           # Susunan section halaman
-├── main.jsx          # Entry point React
-└── style.css         # Entry Tailwind (hanya dua directive)
-```
+│   ├── layout/
+│   ├── sections/
+│   └── ui/
+├── config/
+├── data/
+├── animations/
+├── App.jsx
+└── main.jsx
 
-## Bagian yang paling sering diubah
+Data kendaraan, informasi bisnis, dan konfigurasi lain dipisahkan dari komponen utama agar project lebih mudah dirawat dan dikembangkan.
 
-- Nama rental, nomor WhatsApp, telepon, dan lokasi: `src/config/siteConfig.js`
-- Daftar serta harga armada: `src/data/cars.js`
-- Menu, benefit, dan area layanan: `src/data/content.js`
-- Urutan section halaman: `src/App.jsx`
-- Warna tema utama dan font: `tailwind.config.js`
-- Tampilan setiap bagian: utility class Tailwind di file komponennya
-- Konfigurasi animasi bersama: `src/animations/motion.js`
+## Menjalankan Project
+
+git clone https://github.com/RidhoMuhp/RentCar.git
+cd RentCar
+npm install
+npm run dev
+
+## Build
+
+
+npm run build
+
+
+## Demo
+
+[https://rentalcarmks.netlify.app](https://rentalcarmks.netlify.app)
+
+## Status
+
+Masih dalam tahap pengembangan.
+
+Fokus pengembangan saat ini:
+
+* behavior status kendaraan
+* booking flow
+* mobile usability
+* struktur komponen
+* regression testing
+
