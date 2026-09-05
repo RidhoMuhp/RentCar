@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Settings2, Users } from "lucide-react";
-import { getWhatsAppUrl } from "../../config/siteConfig";
 import { fadeUp } from "../../animations/motion";
 import { useBooking } from "../../context/BookingContext";
+import { getVehicleStatus } from "../../config/vehicleStatus";
 export default function CarCard({ car }) {
   const { chooseCar } = useBooking();
+  const status = getVehicleStatus(car.status);
+
   return (
     <motion.article
       variants={fadeUp}
@@ -40,15 +42,37 @@ export default function CarCard({ car }) {
             <small className="block text-zinc-400">Mulai dari</small>
             <strong className="text-2xl">Rp{car.price}</strong> / hari
           </p>
-          <motion.button
-            whileHover={{ rotate: -12, scale: 1.05 }}
-            type="button"
-            onClick={() => chooseCar(car.name)}
-            className="grid size-10 place-items-center rounded-xl bg-ink text-acid"
-            aria-label={`Pesan ${car.name}`}
-          >
-            <ArrowRight size={17} />
-          </motion.button>
+          <div className="flex items-center gap-2">
+            <span className={`rounded-full px-3 py-2 text-[8px] font-extrabold uppercase tracking-wider ${status.badgeClass}`}>
+              {status.label}
+            </span>
+            <motion.button
+              whileHover={
+                status.bookable
+                  ? { rotate: -12, scale: 1.05 }
+                  : undefined
+              }
+              type="button"
+              disabled={!status.bookable}
+              onClick={() => {
+                if (!status.bookable) return;
+
+                chooseCar(car.name);
+              }}
+              className={`grid size-10 place-items-center rounded-xl ${
+                status.bookable
+                  ? "bg-ink text-acid"
+                  : "cursor-not-allowed bg-zinc-200 text-zinc-400"
+              }`}
+              aria-label={
+                status.bookable
+                  ? `Pesan ${car.name}`
+                  : `${car.name} tidak tersedia`
+              }
+            >
+              <ArrowRight size={17} />
+            </motion.button>
+          </div>
         </div>
       </div>
     </motion.article>

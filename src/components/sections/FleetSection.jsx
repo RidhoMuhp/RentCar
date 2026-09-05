@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { fleetCars } from "../../data/cars";
+import { vehicleStatusConfig } from "../../config/vehicleStatus";
 
 import {
   fadeUp,
@@ -12,10 +13,15 @@ import CarCard from "../ui/CarCard";
 
 const statusOptions = [
     { label: "Semua", value: "all" },
-    { label: "Available", value: "available" },
-    { label: "Rented", value: "rented" },
-    { label: "Maintenance", value: "maintenance" },
+    
+    ...Object.entries(vehicleStatusConfig).map(
+      ([value, config]) => ({
+        value,
+        label: config.label,
+      }),
+    ),
   ];
+
 
 
 export default function FleetSection() {
