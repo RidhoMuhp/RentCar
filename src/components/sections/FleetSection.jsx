@@ -12,16 +12,13 @@ import {
 import CarCard from "../ui/CarCard";
 
 const statusOptions = [
-    { label: "Semua", value: "all" },
-    
-    ...Object.entries(vehicleStatusConfig).map(
-      ([value, config]) => ({
-        value,
-        label: config.label,
-      }),
-    ),
-  ];
+  { label: "Semua", value: "all" },
 
+  ...Object.entries(vehicleStatusConfig).map(([value, config]) => ({
+    value,
+    label: config.label,
+  })),
+];
 
 
 export default function FleetSection() {
@@ -198,4 +195,3 @@ export default function FleetSection() {
     </section>
   );
 }
-
